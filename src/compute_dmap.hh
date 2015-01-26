@@ -19,7 +19,7 @@ namespace my {
         }
 
         std::queue<Point2D> q;
-        neighb2d_iterator n;
+        Neighb2DIterator n;
 
         for_all(p) {
             if (input(p) == true) {

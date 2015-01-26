@@ -38,13 +38,13 @@ namespace my {
 
     // Forward declarations
     class Box2DIterator;
-    class neighb2d_iterator;
+    class Neighb2DIterator;
 
     class box2d {
     public:
         typedef Point2D point_type;
         typedef Box2DIterator p_iterator_type;
-        typedef neighb2d_iterator n_iterator_type;
+        typedef Neighb2DIterator n_iterator_type;
 
         box2d(const Point2D& pmin, const Point2D& pmax) {
             pmin_ = pmin;
@@ -129,9 +129,9 @@ namespace my {
     /**
      * Iterator over the set of neighbors of a 2D point.
      */
-    class neighb2d_iterator {
+    class Neighb2DIterator {
     public:
-        neighb2d_iterator() {
+        Neighb2DIterator() {
             delta_.push_back(Point2D(-1, 0));
             delta_.push_back(Point2D(0, -1));
             delta_.push_back(Point2D(0, 1));
