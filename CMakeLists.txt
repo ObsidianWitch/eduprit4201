@@ -23,12 +23,12 @@ add_executable(test_external_modification.out
 add_executable(test_fill.out
     src/test_fill.cc
     src/Image2D.hh
-    src/fun_image.hh
+    src/FunImage.hh
 )
 
-add_executable(test_fun_image.out
-    src/test_fun_image.cc
-    src/fun_image.hh
+add_executable(test_FunImage.out
+    src/test_FunImage.cc
+    src/FunImage.hh
     src/compute_dmap.hh
     src/Image2D.hh
 )

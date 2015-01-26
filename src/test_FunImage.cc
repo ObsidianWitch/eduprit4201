@@ -1,4 +1,4 @@
-#include "fun_image.hh"
+#include "FunImage.hh"
 #include "compute_dmap.hh"
 
 int main() {
@@ -9,10 +9,10 @@ int main() {
     ima.debug_print();
 
     std::cout << "ima  = " << ima << std::endl;
-    std::cout << "ima' = " << make_fun_image(ima, equals(1)) << std::endl;
+    std::cout << "ima' = " << make_FunImage(ima, equals(1)) << std::endl;
 
     Image2D<unsigned> dmap = compute_dmap__GENERIC(
-        make_fun_image(ima, equals(1))
+        make_FunImage(ima, equals(1))
     );
     dmap.debug_print();
 }

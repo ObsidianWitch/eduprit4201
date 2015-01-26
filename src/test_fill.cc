@@ -1,5 +1,5 @@
 #include "Image2D.hh"
-#include "fun_image.hh"
+#include "FunImage.hh"
 
 int main() {
     using namespace my;
@@ -40,8 +40,8 @@ int main() {
     out.debug_print();
 
     std::cout << "out == 1" << std::endl;
-    fancy_print(make_fun_image(out, equals(1)), b);
+    fancy_print(make_FunImage(out, equals(1)), b);
 
     std::cout << "out == 2" << std::endl;
-    fancy_print(make_fun_image(out, equals(2)), b);
+    fancy_print(make_FunImage(out, equals(2)), b);
 }

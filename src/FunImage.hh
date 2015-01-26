@@ -16,9 +16,8 @@ namespace my {
         }
     };
 
-
     template <typename I, typename F>
-    class fun_image : public Image< fun_image<I,F> > {
+    class FunImage : public Image< FunImage<I,F> > {
     public:
         typedef typename F::result_type value_type;
 
@@ -33,7 +32,7 @@ namespace my {
             typedef typename I::template with_value_type<U>::ret ret;
         };
 
-        fun_image(const Image<I>& ima, F f) :
+        FunImage(const Image<I>& ima, F f) :
             ima_(ima.exact()),
             f_(f)
         {}
@@ -57,8 +56,8 @@ namespace my {
 
 
     template <typename I, typename F>
-    fun_image<I,F> make_fun_image(const Image<I>& ima, F f) {
-        return fun_image<I,F>(ima, f);
+    FunImage<I,F> make_FunImage(const Image<I>& ima, F f) {
+        return FunImage<I,F>(ima, f);
     }
 
 } // end of namespace my
