@@ -6,17 +6,20 @@ SET(CMAKE_CXX_FLAGS "-Wall -Wextra -std=c++11")
 
 add_executable(test_Image2D.out
     src/test_Image2D.cc
+    src/Point2D.hh
     src/Image2D.hh
 )
 
 add_executable(test_compute_dmap.out
     src/test_compute_dmap.cc
     src/compute_dmap.hh
+    src/Point2D.hh
     src/Image2D.hh
 )
 
 add_executable(test_external_modification.out
     src/test_external_modification.cc
+    src/Point2D.hh
     src/Image2D.hh
 )
 
