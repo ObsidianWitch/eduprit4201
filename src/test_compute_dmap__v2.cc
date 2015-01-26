@@ -1,7 +1,7 @@
 #include <cstdlib>
 #include "Image2D.hh"
 #include "image_if.hh"
-#include "helper.hh"
+#include "Helper.hh"
 #include "compute_dmap__v2.hh"
 
 int main() {
@@ -88,7 +88,7 @@ int main() {
 
 
     {
-        helper f(lab);
+        Helper f(lab);
         Image2D<unsigned> dmap = compute_dmap__v2(
             make_image_if(lab, msk), f
         ).remove_if();

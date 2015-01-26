@@ -3,7 +3,7 @@
 
 #include "Image2D.hh"
 #include "image_if.hh"
-#include "helper.hh"
+#include "Helper.hh"
 #include "compute_dmap__v2.hh"
 
 namespace my {

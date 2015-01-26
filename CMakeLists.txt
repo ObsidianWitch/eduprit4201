@@ -43,7 +43,7 @@ add_executable(test_FunImage.out
 #     src/test_compute_dmap__v2.cc
 #     src/Image2D.hh
 #     src/image_if.hh
-#     src/helper.hh
+#     src/Helper.hh
 #     src/compute_dmap__v2.hh
 # )
 
@@ -52,6 +52,6 @@ add_executable(test_FunImage.out
 #     src/analyze.hh
 #     src/Image2D.hh
 #     src/image_if.hh
-#     src/helper.hh
+#     src/Helper.hh
 #     src/compute_dmap__v2.hh
 # )

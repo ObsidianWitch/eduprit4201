@@ -5,7 +5,7 @@
 
 namespace my {
 
-    struct helper {
+    struct Helper {
         // FIXME: cut
     };
 
