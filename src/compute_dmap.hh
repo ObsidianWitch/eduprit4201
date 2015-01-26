@@ -18,7 +18,7 @@ namespace my {
             dmap(p) = max;
         }
 
-        std::queue<point2d> q;
+        std::queue<Point2D> q;
         neighb2d_iterator n;
 
         for_all(p) {
@@ -35,7 +35,7 @@ namespace my {
         }
 
         while (!q.empty()) {
-            point2d p = q.front();
+            Point2D p = q.front();
             q.pop();
             n.center_at(p);
             for_all(n) {

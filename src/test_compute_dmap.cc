@@ -6,7 +6,7 @@ int main() {
 
     image2d<bool_t> ima(4, 5);
     data_fill(ima, false);
-    ima(point2d(2, 3)) = true;
+    ima(Point2D(2, 3)) = true;
     ima.debug_print();
 
     {

@@ -38,7 +38,7 @@ namespace my {
 
     struct nada {
         void init() {}
-        void process(const point2d&) {}
+        void process(const Point2D&) {}
         void final() {}
     };
 
@@ -51,7 +51,7 @@ namespace my {
     struct print_p {
         void init() {}
 
-        void process(const point2d& p) {
+        void process(const Point2D& p) {
             std::cout << p << ' ';
         }
 
@@ -69,7 +69,7 @@ namespace my {
             std::cout << "I'm gonna count..." << std::endl;
         }
 
-        void process(const point2d&) {
+        void process(const Point2D&) {
             value += 1;
         }
 

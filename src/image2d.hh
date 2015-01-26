@@ -9,30 +9,30 @@
 
 namespace my {
 
-    struct point2d {
-        point2d() {}
+    struct Point2D {
+        Point2D() {}
 
-        point2d(int row, int col) {
+        Point2D(int row, int col) {
             this->row = row;
             this->col = col;
         }
 
-        bool operator!=(const point2d& p) const {
+        bool operator!=(const Point2D& p) const {
             return (row != p.row) || (col != p.col);
         }
 
-        bool operator>= (const point2d &b) const {
+        bool operator>= (const Point2D &b) const {
             return (row >= b.row) && (col >= b.col);
         }
 
-        bool operator<= (const point2d &b) const {
+        bool operator<= (const Point2D &b) const {
             return (row <= b.row) && (col <= b.col);
         }
 
         int row, col;
     };
 
-    std::ostream& operator<<(std::ostream& ostr, const point2d& p) {
+    std::ostream& operator<<(std::ostream& ostr, const Point2D& p) {
         return ostr << '(' << p.row << ',' << p.col << ')';
     }
 
@@ -42,11 +42,11 @@ namespace my {
 
     class box2d {
     public:
-        typedef point2d point_type;
+        typedef Point2D point_type;
         typedef box2d_iterator p_iterator_type;
         typedef neighb2d_iterator n_iterator_type;
 
-        box2d(const point2d& pmin, const point2d& pmax) {
+        box2d(const Point2D& pmin, const Point2D& pmax) {
             pmin_ = pmin;
             pmax_ = pmax;
         }
@@ -55,11 +55,11 @@ namespace my {
             : pmin_(0,0), pmax_(nrows - 1, ncols - 1)
         {}
 
-        const point2d& pmin() const {
+        const Point2D& pmin() const {
             return pmin_;
         }
 
-        const point2d& pmax() const {
+        const Point2D& pmax() const {
             return pmax_;
         }
 
@@ -79,13 +79,13 @@ namespace my {
             return (p >= pmin_) && (p <= pmax_);
         }
 
-        int index_of(const point2d& p) const {
+        int index_of(const Point2D& p) const {
             int i = (p.row - pmin_.row) * ncols() + (p.col - pmin_.col);
             return i;
         }
 
     private:
-        point2d pmin_, pmax_;
+        Point2D pmin_, pmax_;
     };
 
 
@@ -116,13 +116,13 @@ namespace my {
             }
         }
 
-        operator point2d() const {
+        operator Point2D() const {
             return p_;
         }
 
     private:
         box2d b_;
-        point2d p_;
+        Point2D p_;
     };
 
 
@@ -132,13 +132,13 @@ namespace my {
     class neighb2d_iterator {
     public:
         neighb2d_iterator() {
-            delta_.push_back(point2d(-1, 0));
-            delta_.push_back(point2d(0, -1));
-            delta_.push_back(point2d(0, 1));
-            delta_.push_back(point2d(1, 0));
+            delta_.push_back(Point2D(-1, 0));
+            delta_.push_back(Point2D(0, -1));
+            delta_.push_back(Point2D(0, 1));
+            delta_.push_back(Point2D(1, 0));
         }
 
-        void center_at(const point2d& p) {
+        void center_at(const Point2D& p) {
             p_ = p;
         }
 
@@ -154,8 +154,8 @@ namespace my {
             i_ += 1;
         }
 
-        operator point2d() const {
-            point2d n;
+        operator Point2D() const {
+            Point2D n;
             n.row = p_.row + delta_[i_].row;
             n.col = p_.col + delta_[i_].col;
 
@@ -163,9 +163,9 @@ namespace my {
         }
 
     private:
-        std::vector<point2d> delta_;
+        std::vector<Point2D> delta_;
         unsigned i_; // current index in delta_
-        point2d p_; // center is p_
+        Point2D p_; // center is p_
     };
 
     // ------------------------
@@ -222,7 +222,7 @@ namespace my {
         std::ostream& ostr = std::cout)
     {
         const I& ima = ima_.exact();
-        point2d p;
+        Point2D p;
         int& row = p.row;
         int& col = p.col;
 
@@ -326,7 +326,7 @@ namespace my {
         void debug_print(std::ostream& ostr = std::cout) const {
             for (int row = d_.pmin().row; row <= d_.pmax().row; row += 1) {
                 for (int col = d_.pmin().col; col <= d_.pmax().col; col += 1) {
-                    ostr << this->operator()(point2d(row, col)) << ' ';
+                    ostr << this->operator()(Point2D(row, col)) << ' ';
                 }
 
                 ostr << std::endl;
