@@ -37,13 +37,13 @@ namespace my {
     }
 
     // Forward declarations
-    class box2d_iterator;
+    class Box2DIterator;
     class neighb2d_iterator;
 
     class box2d {
     public:
         typedef Point2D point_type;
-        typedef box2d_iterator p_iterator_type;
+        typedef Box2DIterator p_iterator_type;
         typedef neighb2d_iterator n_iterator_type;
 
         box2d(const Point2D& pmin, const Point2D& pmax) {
@@ -92,9 +92,9 @@ namespace my {
     /**
      * Iterator over the set of points contained in a 2D box.
      */
-    class box2d_iterator {
+    class Box2DIterator {
     public:
-        box2d_iterator(const box2d& b) : b_(b) {}
+        Box2DIterator(const box2d& b) : b_(b) {}
 
         void start() {
             p_ = b_.pmin();
@@ -316,7 +316,7 @@ namespace my {
                 std::abort();
             }
 
-            box2d_iterator p(domain());
+            Box2DIterator p(domain());
             unsigned i = 0;
             for_all(p) {
                 (*this)(p) = data[i++];

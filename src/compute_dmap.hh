@@ -13,7 +13,7 @@ namespace my {
         const unsigned max = -1;
         image2d<unsigned> dmap(D);
 
-        box2d_iterator p(D);
+        Box2DIterator p(D);
         for (p.start() ; p.is_valid() ; p.next()) {
             dmap(p) = max;
         }
