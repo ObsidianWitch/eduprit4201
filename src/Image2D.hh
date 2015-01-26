@@ -5,6 +5,7 @@
 #include <iostream>
 #include <vector>
 #include "Point2D.hh"
+#include "Neighb2DIterator.hh"
 
 #define for_all(x) for (x.start(); x.is_valid(); x.next())
 
@@ -12,7 +13,6 @@ namespace my {
 
     // Forward declarations
     class Box2DIterator;
-    class Neighb2DIterator;
 
     class Box2D {
     public:
@@ -97,49 +97,6 @@ namespace my {
     private:
         Box2D b_;
         Point2D p_;
-    };
-
-
-    /**
-     * Iterator over the set of neighbors of a 2D point.
-     */
-    class Neighb2DIterator {
-    public:
-        Neighb2DIterator() {
-            delta_.push_back(Point2D(-1, 0));
-            delta_.push_back(Point2D(0, -1));
-            delta_.push_back(Point2D(0, 1));
-            delta_.push_back(Point2D(1, 0));
-        }
-
-        void center_at(const Point2D& p) {
-            p_ = p;
-        }
-
-        void start() {
-            i_ = 0;
-        }
-
-        bool is_valid() const {
-            return i_ < 4;
-        }
-
-        void next() {
-            i_ += 1;
-        }
-
-        operator Point2D() const {
-            Point2D n;
-            n.row = p_.row + delta_[i_].row;
-            n.col = p_.col + delta_[i_].col;
-
-            return n;
-        }
-
-    private:
-        std::vector<Point2D> delta_;
-        unsigned i_; // current index in delta_
-        Point2D p_; // center is p_
     };
 
     // ------------------------
