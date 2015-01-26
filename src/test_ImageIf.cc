@@ -1,4 +1,4 @@
-#include "image_if.hh"
+#include "ImageIf.hh"
 
 int main() {
     using namespace my;
@@ -18,5 +18,5 @@ int main() {
     debug_iota(ima);
     fancy_print(ima, b);
 
-    fancy_print(make_image_if(ima, msk), b);
+    fancy_print(make_ImageIf(ima, msk), b);
 }

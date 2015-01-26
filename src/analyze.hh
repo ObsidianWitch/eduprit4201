@@ -2,7 +2,7 @@
 #define ANALYZE_HH
 
 #include "Image2D.hh"
-#include "image_if.hh"
+#include "ImageIf.hh"
 #include "Helper.hh"
 #include "compute_dmap__v2.hh"
 

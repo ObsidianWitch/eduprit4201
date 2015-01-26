@@ -1,6 +1,6 @@
 #include <cstdlib>
 #include "Image2D.hh"
-#include "image_if.hh"
+#include "ImageIf.hh"
 #include "Helper.hh"
 #include "compute_dmap__v2.hh"
 
@@ -43,7 +43,7 @@ int main() {
     // 0 0 0 0 0
     // 2 0 0 0 0
 
-    fancy_print(make_image_if(lab, msk), b);
+    fancy_print(make_ImageIf(lab, msk), b);
     // gives:
     //
     //         0
@@ -64,7 +64,7 @@ int main() {
 
         // THIS RESULT IS CORRECT BUT...  THIS IS *NOT* WHAT WE WANT!  :-(
 
-        fancy_print( make_image_if(dmap, msk), b );
+        fancy_print( make_ImageIf(dmap, msk), b );
         // gives:
         //
         //         5
@@ -75,7 +75,7 @@ int main() {
 
         // WE WANT TO COMPUTE THE DISTANCE MAP *WITHIN* THE MASK:
 
-        fancy_print( compute_dmap__v2(make_image_if(lab, msk)), b );
+        fancy_print( compute_dmap__v2(make_ImageIf(lab, msk)), b );
         // gives:
         //
         //         4294967295 <- this value is MAX, i.e., unsigned(-1)
@@ -90,7 +90,7 @@ int main() {
     {
         Helper f(lab);
         Image2D<unsigned> dmap = compute_dmap__v2(
-            make_image_if(lab, msk), f
+            make_ImageIf(lab, msk), f
         ).remove_if();
 
         dmap.debug_print();

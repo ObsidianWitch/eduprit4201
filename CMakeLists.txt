@@ -33,16 +33,16 @@ add_executable(test_FunImage.out
     src/Image2D.hh
 )
 
-# add_executable(test_image_if.out
-#     src/test_image_if.cc
-#     src/image_if.hh
+# add_executable(test_ImageIf.out
+#     src/test_ImageIf.cc
+#     src/ImageIf.hh
 #     src/Image2D.hh
 # )
 
 # add_executable(test_compute_dmap__v2.out
 #     src/test_compute_dmap__v2.cc
 #     src/Image2D.hh
-#     src/image_if.hh
+#     src/ImageIf.hh
 #     src/Helper.hh
 #     src/compute_dmap__v2.hh
 # )
@@ -51,7 +51,7 @@ add_executable(test_FunImage.out
 #     src/music_score_analysis.cc
 #     src/analyze.hh
 #     src/Image2D.hh
-#     src/image_if.hh
+#     src/ImageIf.hh
 #     src/Helper.hh
 #     src/compute_dmap__v2.hh
 # )
