@@ -2,8 +2,8 @@
 #define IMAGE_HH
 
 #include <iostream>
-#include "Point2D.hh"
-#include "Box2D.hh"
+#include "tools/Point2D.hh"
+#include "tools/Box2D.hh"
 
 #define for_all(x) for (x.start(); x.is_valid(); x.next())
 

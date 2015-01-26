@@ -1,5 +1,5 @@
 #include <cstdlib>
-#include "compute_dmap.hh"
+#include "tools/compute_dmap.hh"
 
 int main() {
     using namespace my;

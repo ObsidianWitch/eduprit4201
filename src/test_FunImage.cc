@@ -1,6 +1,6 @@
-#include "FunImage.hh"
-#include "Image2D.hh"
-#include "compute_dmap.hh"
+#include "tools/FunImage.hh"
+#include "tools/Image2D.hh"
+#include "tools/compute_dmap.hh"
 
 int main() {
     using namespace my;

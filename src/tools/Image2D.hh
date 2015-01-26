@@ -4,9 +4,9 @@
 #include <cstdlib>
 #include <iostream>
 #include <vector>
-#include "Image.hh"
-#include "Point2D.hh"
-#include "Box2D.hh"
+#include "tools/Image.hh"
+#include "tools/Point2D.hh"
+#include "tools/Box2D.hh"
 
 namespace my {
 

@@ -1,4 +1,4 @@
-#include "Image2D.hh"
+#include "tools/Image2D.hh"
 
 int main() {
     using namespace my;

@@ -2,7 +2,7 @@
 #define NEIGHB2D_ITERATOR_HH
 
 #include <vector>
-#include "Point2D.hh"
+#include "tools/Point2D.hh"
 
 namespace my {
 

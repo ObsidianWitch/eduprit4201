@@ -1,8 +1,8 @@
 #ifndef BOX2D_HH
 #define BOX2D_HH
 
-#include "Point2D.hh"
-#include "Neighb2DIterator.hh"
+#include "tools/Point2D.hh"
+#include "tools/Neighb2DIterator.hh"
 
 namespace my {
 

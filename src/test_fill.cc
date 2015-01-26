@@ -1,5 +1,5 @@
-#include "Image2D.hh"
-#include "FunImage.hh"
+#include "tools/Image2D.hh"
+#include "tools/FunImage.hh"
 
 int main() {
     using namespace my;

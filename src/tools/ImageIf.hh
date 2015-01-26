@@ -1,7 +1,7 @@
 #ifndef IMAGE_IF_HH
 #define IMAGE_IF_HH
 
-#include "Image2D.hh"
+#include "tools/Image2D.hh"
 
 namespace my {
     // FIXME: cut

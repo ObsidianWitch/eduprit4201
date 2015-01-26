@@ -1,5 +1,5 @@
 #include <cstdlib>
-#include "analyze.hh"
+#include "tools/analyze.hh"
 
 int main() {
   using namespace my;

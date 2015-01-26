@@ -1,10 +1,10 @@
 #ifndef ANALYZE_HH
 #define ANALYZE_HH
 
-#include "Image2D.hh"
-#include "ImageIf.hh"
-#include "Helper.hh"
-#include "compute_dmap__v2.hh"
+#include "tools/Image2D.hh"
+#include "tools/ImageIf.hh"
+#include "tools/Helper.hh"
+#include "tools/compute_dmap__v2.hh"
 
 namespace my {
 
