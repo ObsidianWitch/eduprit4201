@@ -11,7 +11,7 @@ namespace my {
     image2d<unsigned> analyze(image2d<unsigned>& lab,
         const image2d<bool_t>& msk)
     {
-        box2d b = lab.domain();
+        Box2D b = lab.domain();
 
         // FIXME: cut
 

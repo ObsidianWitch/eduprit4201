@@ -8,7 +8,7 @@ namespace my {
 
     image2d<unsigned>
     compute_dmap__SPECIFIC(const image2d<bool_t>& input) {
-        box2d D = input.domain();
+        Box2D D = input.domain();
 
         const unsigned max = -1;
         image2d<unsigned> dmap(D);

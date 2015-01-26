@@ -3,7 +3,7 @@
 int main() {
     using namespace my;
 
-    box2d b(2, 3);
+    Box2D b(2, 3);
 
     bool_t msk_dta[] = {
         0, 0, 1,

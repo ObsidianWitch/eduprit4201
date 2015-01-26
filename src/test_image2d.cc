@@ -3,7 +3,7 @@
 int main() {
     using namespace my;
 
-    box2d b(Point2D(1,2), Point2D(2,4));
+    Box2D b(Point2D(1,2), Point2D(2,4));
 
     image2d<int> ima(b);
     debug_iota(ima);

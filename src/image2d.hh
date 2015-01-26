@@ -40,18 +40,18 @@ namespace my {
     class Box2DIterator;
     class Neighb2DIterator;
 
-    class box2d {
+    class Box2D {
     public:
         typedef Point2D point_type;
         typedef Box2DIterator p_iterator_type;
         typedef Neighb2DIterator n_iterator_type;
 
-        box2d(const Point2D& pmin, const Point2D& pmax) {
+        Box2D(const Point2D& pmin, const Point2D& pmax) {
             pmin_ = pmin;
             pmax_ = pmax;
         }
 
-        box2d(unsigned nrows, unsigned ncols)
+        Box2D(unsigned nrows, unsigned ncols)
             : pmin_(0,0), pmax_(nrows - 1, ncols - 1)
         {}
 
@@ -94,7 +94,7 @@ namespace my {
      */
     class Box2DIterator {
     public:
-        Box2DIterator(const box2d& b) : b_(b) {}
+        Box2DIterator(const Box2D& b) : b_(b) {}
 
         void start() {
             p_ = b_.pmin();
@@ -121,7 +121,7 @@ namespace my {
         }
 
     private:
-        box2d b_;
+        Box2D b_;
         Point2D p_;
     };
 
@@ -218,7 +218,7 @@ namespace my {
 
 
     template <typename I>
-    void fancy_print(const Image<I>& ima_, const box2d& b,
+    void fancy_print(const Image<I>& ima_, const Box2D& b,
         std::ostream& ostr = std::cout)
     {
         const I& ima = ima_.exact();
@@ -249,7 +249,7 @@ namespace my {
     public:
         typedef T value_type;
 
-        typedef box2d domain_type;
+        typedef Box2D domain_type;
         typedef typename domain_type::point_type point_type;
         typedef typename domain_type::p_iterator_type p_iterator_type;
         typedef typename domain_type::n_iterator_type n_iterator_type;

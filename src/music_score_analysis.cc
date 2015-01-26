@@ -7,7 +7,7 @@ int main() {
     {
         std::cout << "1ST EXAMPLE:" << std::endl << std::endl;
 
-        box2d b(4, 5);
+        Box2D b(4, 5);
 
         bool_t msk_dta[] = {
             0, 0, 0, 0, 1,
@@ -50,7 +50,7 @@ int main() {
     {
         std::cout << std::endl << "2ND EXAMPLE:" << std::endl << std::endl;
 
-        box2d b(11, 9);
+        Box2D b(11, 9);
 
         bool_t msk_dta[]   = {
             0, 0, 0, 0, 1, 1, 1, 1, 1,
