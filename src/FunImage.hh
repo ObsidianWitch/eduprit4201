@@ -1,7 +1,7 @@
 #ifndef FUN_IMAGE_HH
 #define FUN_IMAGE_HH
 
-#include "Image2D.hh"
+#include "Image.hh"
 
 namespace my {
 

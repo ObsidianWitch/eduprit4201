@@ -1,4 +1,5 @@
 #include "FunImage.hh"
+#include "Image2D.hh"
 #include "compute_dmap.hh"
 
 int main() {

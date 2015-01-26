@@ -1,4 +1,5 @@
 #include "ImageIf.hh"
+#include "Image2D.hh"
 
 int main() {
     using namespace my;
@@ -9,7 +10,7 @@ int main() {
         0, 0, 1,
     	1, 0, 0
     };
-    
+
     Image2D<bool_t> msk(b);
     msk.fill(msk_dta);
     fancy_print(msk, b);
