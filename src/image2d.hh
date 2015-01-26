@@ -18,7 +18,15 @@ namespace my {
         }
 
         bool operator!=(const point2d& p) const {
-            return row != p.row or col != p.col;
+            return (row != p.row) || (col != p.col);
+        }
+
+        bool operator>= (const point2d &b) const {
+            return (row >= b.row) && (col >= b.col);
+        }
+
+        bool operator<= (const point2d &b) const {
+            return (row <= b.row) && (col <= b.col);
         }
 
         int row, col;
@@ -68,12 +76,7 @@ namespace my {
         }
 
         bool has(const point_type& p) const {
-            // TODO return p >= pmin && p <= pmax;
-
-            return (p.row >= pmin_.row) &&
-                (p.col >= pmin_.col) &&
-                (p.row <= pmax_.row) &&
-                (p.col <= pmax_.col);
+            return (p >= pmin_) && (p <= pmax_);
         }
 
         int index_of(const point2d& p) const {

@@ -11,4 +11,4 @@ namespace my {
 
 } // end of namespace my
 
-#endif // ndef HELPER_HH
+#endif // HELPER_HH

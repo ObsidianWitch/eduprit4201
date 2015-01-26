@@ -7,4 +7,4 @@ namespace my {
     // FIXME: cut
 } // end of namespace my
 
-#endif // ndef IMAGE_IF_HH
+#endif // IMAGE_IF_HH
