@@ -23,15 +23,15 @@ int main() {
         	2, 0, 0, 0, 0
         };
 
-        image2d<bool_t> msk(b);
+        Image2D<bool_t> msk(b);
         msk.fill(msk_dta);
         msk.debug_print();
 
-        image2d<unsigned> lab(b);
+        Image2D<unsigned> lab(b);
         lab.fill(lab_dta);
         lab.debug_print();
 
-        image2d<unsigned> path = analyze(lab, msk);
+        Image2D<unsigned> path = analyze(lab, msk);
         // gives:
         //
         // label 1:  max distance = 6,  max point = (3,4)
@@ -80,15 +80,15 @@ int main() {
             4, 0, 0, 0, 0, 0, 0, 0, 0
         };
 
-        image2d<bool_t> msk(b);
+        Image2D<bool_t> msk(b);
         msk.fill(msk_dta);
         msk.debug_print();
 
-        image2d<unsigned> lab(b);
+        Image2D<unsigned> lab(b);
         lab.fill(lab_dta);
         lab.debug_print();
 
-        image2d<unsigned> path = analyze(lab, msk);
+        Image2D<unsigned> path = analyze(lab, msk);
         // gives:
         //
         // label 1:  max distance = 9,  max point = (0,8)

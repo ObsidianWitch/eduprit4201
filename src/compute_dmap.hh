@@ -2,16 +2,16 @@
 #define COMPUTE_DMAP_HH
 
 #include <queue>
-#include "image2d.hh"
+#include "Image2D.hh"
 
 namespace my {
 
-    image2d<unsigned>
-    compute_dmap__SPECIFIC(const image2d<bool_t>& input) {
+    Image2D<unsigned>
+    compute_dmap__SPECIFIC(const Image2D<bool_t>& input) {
         Box2D D = input.domain();
 
         const unsigned max = -1;
-        image2d<unsigned> dmap(D);
+        Image2D<unsigned> dmap(D);
 
         Box2DIterator p(D);
         for (p.start() ; p.is_valid() ; p.next()) {

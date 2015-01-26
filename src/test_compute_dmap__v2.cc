@@ -1,5 +1,5 @@
 #include <cstdlib>
-#include "image2d.hh"
+#include "Image2D.hh"
 #include "image_if.hh"
 #include "helper.hh"
 #include "compute_dmap__v2.hh"
@@ -23,7 +23,7 @@ int main() {
 		2, 0, 0, 0, 0
     };
 
-    image2d<bool_t> msk(b);
+    Image2D<bool_t> msk(b);
     msk.fill(msk_dta);
     msk.debug_print();
     // gives:
@@ -33,7 +33,7 @@ int main() {
     // 0 0 0 1 1
     // 1 1 1 0 1
 
-    image2d<unsigned> lab(b); // this is the "seed" label image
+    Image2D<unsigned> lab(b); // this is the "seed" label image
     lab.fill(lab_dta);
     lab.debug_print();
     // gives:
@@ -53,7 +53,7 @@ int main() {
 
 
     {
-        image2d<unsigned> dmap = compute_dmap__v2(lab);
+        Image2D<unsigned> dmap = compute_dmap__v2(lab);
         dmap.debug_print();
         // gives:
         //
@@ -89,7 +89,7 @@ int main() {
 
     {
         helper f(lab);
-        image2d<unsigned> dmap = compute_dmap__v2(
+        Image2D<unsigned> dmap = compute_dmap__v2(
             make_image_if(lab, msk), f
         ).remove_if();
 

@@ -2,7 +2,7 @@
 #define COMPUTE_DMAP__V2_HH
 
 #include <queue>
-#include "image2d.hh"
+#include "Image2D.hh"
 
 namespace my {
 

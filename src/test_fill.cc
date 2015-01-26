@@ -1,4 +1,4 @@
-#include "image2d.hh"
+#include "Image2D.hh"
 #include "fun_image.hh"
 
 int main() {
@@ -20,11 +20,11 @@ int main() {
     	2, 0, 0, 0, 0
     };
 
-    image2d<bool_t> msk(b);
+    Image2D<bool_t> msk(b);
     msk.fill(msk_dta);
     msk.debug_print();
 
-    image2d<unsigned> lab(b);
+    Image2D<unsigned> lab(b);
     lab.fill(lab_dta);
     lab.debug_print();
 
@@ -35,7 +35,7 @@ int main() {
     	2, 2, 2, 2, 2
     };
 
-    image2d<unsigned> out(b);
+    Image2D<unsigned> out(b);
     out.fill(out_dta);
     out.debug_print();
 

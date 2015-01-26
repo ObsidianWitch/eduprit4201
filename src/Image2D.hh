@@ -245,7 +245,7 @@ namespace my {
     // ------------------------
 
     template <typename T>
-    class image2d : public Image< image2d<T> > {
+    class Image2D : public Image< Image2D<T> > {
     public:
         typedef T value_type;
 
@@ -257,24 +257,24 @@ namespace my {
         /**
          * TODO do it the C++ way :
          *   template <typename U>
-         *   using with_value_type = image2d<U>;
+         *   using with_value_type = Image2D<U>;
          *
          * example :
-         * with I being image2d<int>
-         * ->  typename I::template with_value_type<float>::ret is image2d<float>
+         * with I being Image2D<int>
+         * ->  typename I::template with_value_type<float>::ret is Image2D<float>
          */
         template <typename U>
         struct with_value_type {
-            typedef image2d<U> ret;
+            typedef Image2D<U> ret;
         };
 
-        image2d(const domain_type& d) :
+        Image2D(const domain_type& d) :
             d_(d)
         {
             data_.resize(d_.npoints());
         }
 
-        image2d(unsigned nrows, unsigned ncols) :
+        Image2D(unsigned nrows, unsigned ncols) :
             d_(nrows, ncols)
         {
             data_.resize(d_.npoints());

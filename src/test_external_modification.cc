@@ -1,4 +1,4 @@
-#include "image2d.hh"
+#include "Image2D.hh"
 
 namespace my {
 
@@ -83,7 +83,7 @@ namespace my {
 int main() {
     using namespace my;
 
-    image2d<unsigned> ima(2, 3);
+    Image2D<unsigned> ima(2, 3);
     debug_iota(ima);
 
 

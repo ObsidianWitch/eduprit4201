@@ -1,7 +1,7 @@
 #ifndef HELPER_HH
 #define HELPER_HH
 
-#include "image2d.hh"
+#include "Image2D.hh"
 
 namespace my {
 

@@ -1,21 +1,21 @@
 #ifndef ANALYZE_HH
 #define ANALYZE_HH
 
-#include "image2d.hh"
+#include "Image2D.hh"
 #include "image_if.hh"
 #include "helper.hh"
 #include "compute_dmap__v2.hh"
 
 namespace my {
 
-    image2d<unsigned> analyze(image2d<unsigned>& lab,
-        const image2d<bool_t>& msk)
+    Image2D<unsigned> analyze(Image2D<unsigned>& lab,
+        const Image2D<bool_t>& msk)
     {
         Box2D b = lab.domain();
 
         // FIXME: cut
 
-        image2d<unsigned> path(b);
+        Image2D<unsigned> path(b);
         data_fill(path, 0);
 
         // FIXME: cut

@@ -10,11 +10,11 @@ int main() {
     	1, 0, 0
     };
     
-    image2d<bool_t> msk(b);
+    Image2D<bool_t> msk(b);
     msk.fill(msk_dta);
     fancy_print(msk, b);
 
-    image2d<int> ima(b);
+    Image2D<int> ima(b);
     debug_iota(ima);
     fancy_print(ima, b);
 
