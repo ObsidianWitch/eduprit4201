@@ -2,6 +2,7 @@
 #define IMAGE_IF_HH
 
 #include "tools/Image2D.hh"
+#include "tools/DomainIf.hh"
 
 namespace my {
 
