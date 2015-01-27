@@ -48,6 +48,11 @@ namespace my {
             return msk_.domain().index_of(p);
         }
 
+        // TODO generic return type
+        Box2DIterator parentIterator() const {
+            return msk_.pIterator();
+        }
+
     private:
         const Image2D<bool_t>& msk_;
     };
@@ -61,14 +66,8 @@ namespace my {
         void start() {
             p_ = domain_.pmin();
 
-            // TODO refacto utiliser parent iterator next()
             while(!domain_.has(p_) && is_valid()) {
-                p_.col += 1;
-
-                if (p_.col > domain_.pmax().col) {
-                    p_.row += 1;
-                    p_.col = domain_.pmin().col;
-                }
+                domain_.parentIterator().next();
             }
         }
 
@@ -82,14 +81,8 @@ namespace my {
                 std::abort();
             }
 
-            // TODO refacto utiliser parent iterator next()
             do {
-                p_.col += 1;
-
-                if (p_.col > domain_.pmax().col) {
-                    p_.row += 1;
-                    p_.col = domain_.pmin().col;
-                }
+                domain_.parentIterator().next();
             } while (!domain_.has(p_) && is_valid());
         }
 
