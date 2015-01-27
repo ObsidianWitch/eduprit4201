@@ -15,27 +15,17 @@ namespace my {
         // FIXME generic image
         DomainIf(const Image2D<bool_t>& msk) :
             msk_(msk)
-        {}
-
-        const Point2D& pmin() const {
-            return msk_.domain().pmin();
+        {
+            compute_pmin();
+            compute_pmax_npoints();
         }
 
-        const Point2D& pmax() const {
-            return msk_.domain().pmax();
-        }
+        const Point2D& pmin() const { return pmin_; }
+        const Point2D& pmax() const { return pmax_; }
 
-        unsigned nrows() const {
-            return msk_.domain().nrows();
-        }
-
-        unsigned ncols() const {
-            return msk_.domain().ncols();
-        }
-
-        unsigned npoints() const {
-            return nrows() * ncols();
-        }
+        unsigned nrows() const { return msk_.domain().nrows(); }
+        unsigned ncols() const { return msk_.domain().ncols(); }
+        unsigned npoints() const { return npoints_; }
 
         bool has(const point_type& p) const {
             bool containedInParentDomain = msk_.domain().has(p);
@@ -55,6 +45,30 @@ namespace my {
 
     private:
         const Image2D<bool_t>& msk_;
+        Point2D pmin_, pmax_;
+        unsigned npoints_;
+
+        void compute_pmin() {
+            auto p = parentIterator();
+            for_all(p) {
+                if (has(p)) {
+                    pmin_ = p;
+                    break;
+                }
+            }
+        }
+
+        void compute_pmax_npoints() {
+            npoints_ = 0;
+
+            auto p = parentIterator();
+            for_all(p) {
+                if (has(p)) {
+                    pmax_ = p;
+                    npoints_++;
+                }
+            }
+        }
     };
 
     class IteratorIf {
@@ -65,13 +79,8 @@ namespace my {
 
         void start() {
             p_ = domain_.pmin();
-
-            while(!domain_.has(p_) && is_valid()) {
-                domain_.parentIterator().next();
-            }
         }
 
-        // TODO à modifier, va trop loin
         bool is_valid() const {
             return p_ <= domain_.pmax();
         }

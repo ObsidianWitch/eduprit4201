@@ -17,8 +17,7 @@ namespace my {
 
         ImageIf (const Image<I>& ima, const Image<M>& msk) :
             ima_(ima.exact()),
-            // TODO create domain from msk
-            domain_(msk.exact()) // FIXME domain_(msk) ?
+            domain_(msk.exact())
         {}
 
         value_type operator()(const point_type& p) const {
