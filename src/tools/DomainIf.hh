@@ -91,7 +91,11 @@ namespace my {
             }
 
             do {
-                domain_.parentIterator().next();
+                p_.col += 1;
+                if (p_.col > domain_.pmax().col) {
+                    p_.row += 1;
+                    p_.col = 0;
+                }
             } while (!domain_.has(p_) && is_valid());
         }
 
