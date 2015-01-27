@@ -72,10 +72,15 @@ int main() {
         //       4 5
         // 0 1 2   4
 
+        std::cout << "__" << std::endl; // FIXME debug only
 
         // WE WANT TO COMPUTE THE DISTANCE MAP *WITHIN* THE MASK:
 
-        fancy_print( compute_dmap__v2(make_ImageIf(lab, msk)), b );
+        auto imgif = make_ImageIf(lab, msk);
+        auto dmap_imgif = compute_dmap__v2(imgif);
+        fancy_print( dmap_imgif, b );
+        // FIXME fancy_print(compute_dmap__v2(make_ImageIf(lab, msk), b);
+
         // gives:
         //
         //         4294967295 <- this value is MAX, i.e., unsigned(-1)
@@ -87,7 +92,7 @@ int main() {
     }
 
 
-    {
+    /*{
         Helper f(lab);
         Image2D<unsigned> dmap = compute_dmap__v2(
             make_ImageIf(lab, msk), f
@@ -116,7 +121,7 @@ int main() {
         // (1,0) (1,0) (1,1) (1,2) (1,4)
         // (2,0) (2,1) (2,2) (1,3) (2,3)
         // (3,0) (3,0) (3,1) (3,3) (2,4)
-    }
+    }*/
 
     return EXIT_SUCCESS;
 }

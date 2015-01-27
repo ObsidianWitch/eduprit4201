@@ -1,6 +1,7 @@
 #include "tools/FunImage.hh"
 #include "tools/Image2D.hh"
 #include "tools/compute_dmap.hh"
+#include "tools/compute_dmap__v2.hh"
 
 int main() {
     using namespace my;

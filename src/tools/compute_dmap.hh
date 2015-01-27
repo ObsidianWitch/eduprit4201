@@ -2,6 +2,7 @@
 #define COMPUTE_DMAP_HH
 
 #include <queue>
+#include <limits>
 #include "tools/Image2D.hh"
 
 namespace my {
@@ -10,7 +11,7 @@ namespace my {
     compute_dmap__SPECIFIC(const Image2D<bool_t>& input) {
         Box2D D = input.domain();
 
-        const unsigned max = -1;
+        const unsigned max = std::numeric_limits<unsigned>::max();
         Image2D<unsigned> dmap(D);
 
         Box2DIterator p(D);
@@ -53,23 +54,21 @@ namespace my {
     typename I::template with_value_type<unsigned>::ret
     compute_dmap__GENERIC(const Image<I>& input_) {
         typedef typename I::point_type point_type;
-        typedef typename I::p_iterator_type p_iterator_type;
-        typedef typename I::n_iterator_type n_iterator_type;
         typedef typename I::template with_value_type<unsigned>::ret dmap_type;
 
         const I& input = input_.exact();
         auto D = input.domain();
 
-        const unsigned max = -1;
+        const unsigned max = std::numeric_limits<unsigned>::max();
         dmap_type dmap(D);
 
-        p_iterator_type p(D);
+        auto p = input.pIterator();
         for_all(p) {
             dmap(p) = max;
         }
 
         std::queue<point_type> q;
-        n_iterator_type n;
+        auto n = input.nIterator();
 
         for_all(p) {
             if (input(p) == true) {

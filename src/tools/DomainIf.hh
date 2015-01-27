@@ -43,6 +43,10 @@ namespace my {
             return msk_.pIterator();
         }
 
+        operator Box2D() const {
+            return Box2D(nrows(), ncols());
+        }
+
     private:
         const Image2D<bool_t>& msk_;
         Point2D pmin_, pmax_;

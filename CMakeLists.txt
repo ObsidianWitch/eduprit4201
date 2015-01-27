@@ -47,14 +47,14 @@ add_executable(test_ImageIf.out
     src/tools/Image2D.hh
 )
 
-# add_executable(test_compute_dmap__v2.out
-#     src/test_compute_dmap__v2.cc
-#     src/tools/Box2D.hh
-#     src/tools/Image2D.hh
-#     src/tools/ImageIf.hh
-#     src/tools/Helper.hh
-#     src/tools/compute_dmap__v2.hh
-# )
+add_executable(test_compute_dmap__v2.out
+    src/test_compute_dmap__v2.cc
+    src/tools/Box2D.hh
+    src/tools/Image2D.hh
+    src/tools/ImageIf.hh
+    src/tools/Helper.hh
+    src/tools/compute_dmap__v2.hh
+)
 
 # add_executable(music_score_analysis.out
 #     src/music_score_analysis.cc
