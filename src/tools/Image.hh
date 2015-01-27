@@ -68,7 +68,7 @@ namespace my {
                     ostr << ima(p) << ' ';
                 }
                 else {
-                    ostr << "  ";
+                    ostr << "X ";
                 }
             }
 
