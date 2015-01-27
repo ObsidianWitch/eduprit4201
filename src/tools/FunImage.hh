@@ -54,7 +54,7 @@ namespace my {
         }
 
         n_iterator_type nIterator() const {
-            return n_iterator_type(domain());
+            return n_iterator_type();
         }
 
     private:

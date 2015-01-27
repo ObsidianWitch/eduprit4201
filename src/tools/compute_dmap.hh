@@ -53,25 +53,21 @@ namespace my {
     typename I::template with_value_type<unsigned>::ret
     compute_dmap__GENERIC(const Image<I>& input_) {
         typedef typename I::point_type point_type;
-        typedef typename I::domain_type domain_type;
-        typedef typename I::p_iterator_type p_iterator_type;
-        typedef typename I::n_iterator_type n_iterator_type;
-
         typedef typename I::template with_value_type<unsigned>::ret dmap_type;
 
         const I& input = input_.exact();
-        domain_type D = input.domain();
+        auto D = input.domain();
 
         const unsigned max = -1;
         dmap_type dmap(D);
 
-        p_iterator_type p(D);
+        auto p = dmap.pIterator();
         for_all(p) {
             dmap(p) = max;
         }
 
         std::queue<point_type> q;
-        n_iterator_type n;
+        auto n = dmap.nIterator();
 
         for_all(p) {
             if (input(p) == true) {

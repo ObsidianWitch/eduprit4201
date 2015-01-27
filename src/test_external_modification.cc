@@ -8,8 +8,8 @@ namespace my {
     template <typename I>
     void a_simple_algorithm__v1(const Image<I>& ima_) {
         const I& ima = ima_.exact();
-        typename I::p_iterator_type p(ima.domain());
 
+        auto p = ima.pIterator();
         for_all(p) {
             std::cout << ima(p) << ' ';
         }
@@ -25,8 +25,8 @@ namespace my {
     void a_simple_algorithm__v2(const Image<I>& ima_, F& f) {
         const I& ima = ima_.exact();
         f.init(); // do something at initialization
-        typename I::p_iterator_type p(ima.domain());
 
+        auto p = ima.pIterator();
         for_all(p) {
             std::cout << ima(p) << ' ';
             f.process(p); // do something at p
