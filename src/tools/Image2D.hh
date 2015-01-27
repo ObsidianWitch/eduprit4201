@@ -72,6 +72,14 @@ namespace my {
             return data_[i];
         }
 
+        p_iterator_type pIterator() const {
+            return p_iterator_type(domain());
+        }
+
+        n_iterator_type nIterator() const {
+            return n_iterator_type(domain());
+        }
+
         const domain_type& domain() const {
             return d_;
         }

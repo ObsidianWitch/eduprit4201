@@ -33,6 +33,14 @@ namespace my {
             return domain_;
         }
 
+        p_iterator_type pIterator() const {
+            return p_iterator_type(domain());
+        }
+
+        n_iterator_type nIterator() const {
+            return n_iterator_type(domain());
+        }
+
     private:
         const I& ima_;
         const domain_type domain_;
