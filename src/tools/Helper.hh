@@ -5,6 +5,12 @@
 
 namespace my {
 
+    struct DoNothing {
+        void init() {}
+        void process(const Point2D&) {}
+        void final() {}
+    };
+
     struct Helper {
         // FIXME: cut
     };
