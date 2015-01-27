@@ -40,12 +40,12 @@ add_executable(test_FunImage.out
     src/tools/Image2D.hh
 )
 
-# add_executable(test_ImageIf.out
-#     src/test_ImageIf.cc
-#     src/tools/ImageIf.hh
-#     src/tools/Box2D.hh
-#     src/tools/Image2D.hh
-# )
+add_executable(test_ImageIf.out
+    src/test_ImageIf.cc
+    src/tools/ImageIf.hh
+    src/tools/Box2D.hh
+    src/tools/Image2D.hh
+)
 
 # add_executable(test_compute_dmap__v2.out
 #     src/test_compute_dmap__v2.cc

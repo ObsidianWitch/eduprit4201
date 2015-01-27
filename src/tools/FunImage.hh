@@ -38,7 +38,7 @@ namespace my {
         {}
 
         value_type operator()(const point_type& p) const {
-            if (!ima_.domain().has(p)) {
+            if (!domain().has(p)) {
                 std::abort();
             }
 
