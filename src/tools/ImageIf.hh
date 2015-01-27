@@ -7,12 +7,12 @@
 namespace my {
 
     template <typename I, typename M>
-    class ImageIf : public Image< ImageIf< TODO > >{
+    class ImageIf : public Image< ImageIf<I,M> >{
     public:
         typedef typename I::value_type value_type;
-        typedef typename DomainIf domain_type;
+        typedef DomainIf domain_type;
         typedef typename I::point_type point_type;
-        typedef typename IteratorIf p_iterator_type;
+        typedef IteratorIf p_iterator_type;
         typedef typename I::n_iterator_type n_iterator_type;
 
         ImageIf (const Image<I>& ima, const Image<M>& msk) :
@@ -36,7 +36,7 @@ namespace my {
     private:
         const I& ima_;
         const domain_type domain_;
-    }
+    };
 
     template <typename I, typename M>
     ImageIf<I,M> make_ImageIf(const Image<I>& ima, const Image<M>& msk) {

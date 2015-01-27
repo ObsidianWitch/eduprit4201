@@ -50,7 +50,7 @@ namespace my {
 
     private:
         const Image2D<bool_t>& msk_;
-    }
+    };
 
     class IteratorIf {
     public:
@@ -74,7 +74,7 @@ namespace my {
 
         // TODO à modifier, va trop loin
         bool is_valid() const {
-            return p_ <= domain.pmax();
+            return p_ <= domain_.pmax();
         }
 
         void next() {
@@ -100,7 +100,7 @@ namespace my {
     private:
         DomainIf domain_;
         Point2D p_;
-    }
+    };
 
 } // end of namespae my
 
