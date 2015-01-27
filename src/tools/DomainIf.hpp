@@ -53,7 +53,53 @@ namespace my {
     }
 
     class IteratorIf {
-        // TODO
+    public:
+        IteratorIf(const DomainIf& domain) :
+            domain_(domain)
+        {}
+
+        void start() {
+            p_ = domain_.pmin();
+
+            // TODO refacto utiliser parent iterator next()
+            while(!domain_.has(p_) && is_valid()) {
+                p_.col += 1;
+
+                if (p_.col > domain_.pmax().col) {
+                    p_.row += 1;
+                    p_.col = domain_.pmin().col;
+                }
+            }
+        }
+
+        // TODO à modifier, va trop loin
+        bool is_valid() const {
+            return p_ <= domain.pmax();
+        }
+
+        void next() {
+            if (!is_valid()) {
+                std::abort();
+            }
+
+            // TODO refacto utiliser parent iterator next()
+            do {
+                p_.col += 1;
+
+                if (p_.col > domain_.pmax().col) {
+                    p_.row += 1;
+                    p_.col = domain_.pmin().col;
+                }
+            } while (!domain_.has(p_) && is_valid());
+        }
+
+        operator Point2D() const {
+            return p_;
+        }
+
+    private:
+        DomainIf domain_;
+        Point2D p_;
     }
 
 } // end of namespae my
