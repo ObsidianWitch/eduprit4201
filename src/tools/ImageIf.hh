@@ -12,17 +12,14 @@ namespace my {
         typedef typename I::value_type value_type;
 
         typedef DomainIf domain_type;
-        //typedef typename I::point_type point_type;
         typedef typename domain_type::point_type point_type;
-        //typedef IteratorIf p_iterator_type;
         typedef typename domain_type::p_iterator_type p_iterator_type;
-        //typedef typename I::n_iterator_type n_iterator_type;
         typedef typename domain_type::n_iterator_type n_iterator_type;
 
         // TODO do it the C++ 11 way
         template <typename U>
         struct with_value_type {
-            typedef typename I::template with_value_type<U>::ret ret;
+            typedef typename I::template with_value_type<U, DomainIf>::ret ret;
         };
 
         ImageIf (const Image<I>& ima, const Image<M>& msk) :

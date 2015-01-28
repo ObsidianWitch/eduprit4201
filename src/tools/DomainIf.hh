@@ -17,7 +17,7 @@ namespace my {
             msk_(msk)
         {
             compute_pmin();
-            compute_pmax_npoints();
+            compute_pmax();
         }
 
         const Point2D& pmin() const { return pmin_; }
@@ -25,7 +25,7 @@ namespace my {
 
         unsigned nrows() const { return msk_.domain().nrows(); }
         unsigned ncols() const { return msk_.domain().ncols(); }
-        unsigned npoints() const { return npoints_; }
+        unsigned npoints() const { return nrows() * ncols(); }
 
         bool has(const point_type& p) const {
             bool containedInParentDomain = msk_.domain().has(p);
@@ -43,14 +43,9 @@ namespace my {
             return msk_.pIterator();
         }
 
-        operator Box2D() const {
-            return Box2D(nrows(), ncols());
-        }
-
     private:
         const Image2D<bool_t>& msk_;
         Point2D pmin_, pmax_;
-        unsigned npoints_;
 
         void compute_pmin() {
             auto p = parentIterator();
@@ -62,14 +57,11 @@ namespace my {
             }
         }
 
-        void compute_pmax_npoints() {
-            npoints_ = 0;
-
+        void compute_pmax() {
             auto p = parentIterator();
             for_all(p) {
                 if (has(p)) {
                     pmax_ = p;
-                    npoints_++;
                 }
             }
         }
