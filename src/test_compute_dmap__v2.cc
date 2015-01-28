@@ -72,14 +72,9 @@ int main() {
         //       4 5
         // 0 1 2   4
 
-        std::cout << "__" << std::endl; // FIXME debug only
-
         // WE WANT TO COMPUTE THE DISTANCE MAP *WITHIN* THE MASK:
 
-        auto imgif = make_ImageIf(lab, msk);
-        auto dmap_imgif = compute_dmap__v2(imgif);
-        fancy_print( dmap_imgif, b );
-        // FIXME fancy_print(compute_dmap__v2(make_ImageIf(lab, msk), b);
+        fancy_print(compute_dmap__v2(make_ImageIf(lab, msk)), b);
 
         // gives:
         //
