@@ -2,7 +2,6 @@
 #define IMAGE_HH
 
 #include <iostream>
-#include <limits>
 #include "tools/Point2D.hh"
 #include "tools/Box2D.hh"
 
@@ -58,8 +57,6 @@ namespace my {
     void fancy_print(const Image<I>& ima_, const Box2D& b,
         std::ostream& ostr = std::cout)
     {
-        typedef typename I::value_type value_type;
-
         const I& ima = ima_.exact();
         Point2D p;
         int& row = p.row;
@@ -68,11 +65,7 @@ namespace my {
         for (row = b.pmin().row; row <= b.pmax().row; row += 1) {
             for (col = b.pmin().col; col <= b.pmax().col; col += 1){
                 if (ima.domain().has(p)) {
-                    if (ima(p) == std::numeric_limits<value_type>::max()) {
-                        ostr << "i "; // infinity
-                    } else {
-                        ostr << ima(p) << ' ';
-                    }
+                    ostr << ima(p) << ' ';
                 }
                 else {
                     ostr << "X ";

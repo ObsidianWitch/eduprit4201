@@ -78,7 +78,7 @@ int main() {
 
         // gives:
         //
-        //         i <- this value is MAX
+        //         4294967295 <- this value is MAX, i.e., unsigned(-1)
         // 0 1 2 3
         //       4 5
         // 0 1 2   6
