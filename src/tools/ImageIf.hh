@@ -19,7 +19,8 @@ namespace my {
         // TODO do it the C++ 11 way
         template <typename U>
         struct with_value_type {
-            typedef typename I::template with_value_type<U, DomainIf>::ret ret;
+            typedef typename I::template with_value_type<U>::ret tmp;
+            typedef ImageIf<tmp, M> ret;
         };
 
         ImageIf (Image<I>& ima, const Image<M>& msk) :
