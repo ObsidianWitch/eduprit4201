@@ -91,7 +91,7 @@ int main() {
         Helper f(lab);
         Image2D<unsigned> dmap = compute_dmap__v2(
             make_ImageIf(lab, msk), f
-        ).remove_if();
+        ).removeIf();
 
         dmap.debug_print();
         // gives:

@@ -22,7 +22,7 @@ namespace my {
             typedef typename I::template with_value_type<U, DomainIf>::ret ret;
         };
 
-        ImageIf (const Image<I>& ima, const Image<M>& msk) :
+        ImageIf (Image<I>& ima, const Image<M>& msk) :
             domain_(msk.exact()),
             allocated(false)
         {
@@ -62,14 +62,18 @@ namespace my {
             return n_iterator_type();
         }
 
+        I& removeIf() {
+            return *ima_;
+        }
+
     private:
-        const I* ima_;
+        I* ima_;
         const domain_type domain_;
         bool allocated;
     };
 
     template <typename I, typename M>
-    ImageIf<I,M> make_ImageIf(const Image<I>& ima, const Image<M>& msk) {
+    ImageIf<I,M> make_ImageIf(Image<I>& ima, const Image<M>& msk) {
         return ImageIf<I,M>(ima, msk);
     }
 

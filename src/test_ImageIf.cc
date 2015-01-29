@@ -24,4 +24,6 @@ int main() {
 
     ImageIf<Image2D<unsigned>, Image2D<int>> imgIf2(imgIf1.domain());
     fancy_print(imgIf2, b);
+
+    fancy_print(imgIf2.removeIf(), b);
 }
