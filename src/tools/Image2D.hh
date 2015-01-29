@@ -10,12 +10,12 @@
 
 namespace my {
 
-    template <typename T, typename Domain = Box2D>
-    class Image2D : public Image< Image2D<T, Domain> > {
+    template <typename T>
+    class Image2D : public Image< Image2D<T> > {
     public:
         typedef T value_type;
 
-        typedef Domain domain_type;
+        typedef Box2D domain_type;
         typedef typename domain_type::point_type point_type;
         typedef typename domain_type::p_iterator_type p_iterator_type;
         typedef typename domain_type::n_iterator_type n_iterator_type;
@@ -29,9 +29,9 @@ namespace my {
          * with I being Image2D<int>
          * ->  typename I::template with_value_type<float>::ret is Image2D<float>
          */
-        template <typename U, typename D = Box2D>
+        template <typename U>
         struct with_value_type {
-            typedef Image2D<U, D> ret;
+            typedef Image2D<U> ret;
         };
 
         Image2D(const domain_type& d) :
