@@ -29,6 +29,13 @@ namespace my {
             ima_ = &ima.exact();
         }
 
+        ImageIf(const domain_type& d) :
+            domain_(d),
+            allocated(true)
+        {
+            ima_ = new I(domain_.parentDomain());
+        }
+
         ~ImageIf() {
             if (allocated) {
                 delete ima_;

@@ -39,6 +39,11 @@ namespace my {
         }
 
         // TODO generic return type
+        Box2D parentDomain() const {
+            return msk_.domain();
+        }
+
+        // TODO generic return type
         Box2DIterator parentIterator() const {
             return msk_.pIterator();
         }

@@ -19,5 +19,9 @@ int main() {
     debug_iota(ima);
     fancy_print(ima, b);
 
+    auto imgIf1 = make_ImageIf(ima, msk);
     fancy_print(make_ImageIf(ima, msk), b);
+
+    ImageIf<Image2D<unsigned>, Image2D<int>> imgIf2(imgIf1.domain());
+    fancy_print(imgIf2, b);
 }
