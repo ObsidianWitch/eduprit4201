@@ -41,8 +41,6 @@ namespace my {
                         break;
                     }
                 }
-
-                // FIXME: cut
             }
         }
 
@@ -68,8 +66,6 @@ namespace my {
         DoNothing f;
         return compute_dmap__v2(input_, f);
     }
-
-    // FIXME: cut
 
 } // end of namespace my
 

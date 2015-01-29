@@ -21,11 +21,12 @@ namespace my {
 
         void init() {
             initPrev();
+            initIz();
         }
 
         void process(const Point2D& curPoint, const Point2D& prevPoint) {
-            // TODO compute iz
             computePrev(curPoint, prevPoint);
+            computeIz(curPoint);
         }
 
         const Image2D<unsigned>& seeds_;
@@ -42,6 +43,19 @@ namespace my {
 
         void computePrev(const Point2D& curPoint, const Point2D& prevPoint){
             prev(curPoint) = prevPoint;
+        }
+
+        void initIz() {
+            auto p = iz.pIterator();
+            for_all(p) {
+                iz(p) = seeds_(p);
+            }
+        }
+
+        void computeIz(const Point2D& curPoint) {
+            if (curPoint != prev(curPoint)) {
+                iz(curPoint) = iz(prev(curPoint));
+            }
         }
     };
 
