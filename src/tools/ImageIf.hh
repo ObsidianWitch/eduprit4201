@@ -23,16 +23,24 @@ namespace my {
         };
 
         ImageIf (const Image<I>& ima, const Image<M>& msk) :
-            ima_(ima.exact()),
-            domain_(msk.exact())
-        {}
+            domain_(msk.exact()),
+            allocated(false)
+        {
+            ima_ = &ima.exact();
+        }
+
+        ~ImageIf() {
+            if (allocated) {
+                delete ima_;
+            }
+        }
 
         value_type operator()(const point_type& p) const {
             if (!domain().has(p)) {
                 std::abort();
             }
 
-            return ima_(p);
+            return (*ima_)(p);
         }
 
         const domain_type& domain() const {
@@ -48,8 +56,9 @@ namespace my {
         }
 
     private:
-        const I& ima_;
+        const I* ima_;
         const domain_type domain_;
+        bool allocated;
     };
 
     template <typename I, typename M>
