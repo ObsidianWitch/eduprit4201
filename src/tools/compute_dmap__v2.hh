@@ -20,6 +20,8 @@ namespace my {
         const unsigned max = std::numeric_limits<unsigned>::max();
         dmap_type dmap(D);
 
+        f.init();
+
         auto p = input.pIterator();
         for_all(p) {
             dmap(p) = max;
@@ -31,6 +33,7 @@ namespace my {
         for_all(p){
             if (input(p) != 0) {
                 dmap(p) = 0;
+                f.process(p, p);
                 n.center_at(p);
                 for_all(n) {
                     if (D.has(n) && input(n) == false) {
@@ -51,7 +54,7 @@ namespace my {
                 if (D.has(n) && dmap(n) == max) {
                     dmap(n) = dmap(p) + 1;
                     q.push(n);
-                    // FIXME: cut
+                    f.process(n, p);
                 }
             }
         }

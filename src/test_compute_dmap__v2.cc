@@ -88,8 +88,7 @@ int main() {
 
 
     {
-        // FIXME Helper f(lab);
-        DoNothing f;
+        Helper f(lab);
         Image2D<unsigned> dmap = compute_dmap__v2(
             make_ImageIf(lab, msk), f
         ).removeIf();
@@ -102,7 +101,7 @@ int main() {
         // 0 0 0 4 5
         // 0 1 2 0 6
 
-        /*f.iz.debug_print(); // 'iz' means "influence zone" of a seed
+        f.iz.debug_print(); // 'iz' means "influence zone" of a seed
         // gives:
         //
         // 0 0 0 0 0 <- this pixel cannot be reached from a seed
@@ -116,7 +115,7 @@ int main() {
         // (0,0) (0,1) (0,2) (0,3) (0,4)
         // (1,0) (1,0) (1,1) (1,2) (1,4)
         // (2,0) (2,1) (2,2) (1,3) (2,3)
-        // (3,0) (3,0) (3,1) (3,3) (2,4)*/
+        // (3,0) (3,0) (3,1) (3,3) (2,4)
     }
 
     return EXIT_SUCCESS;
