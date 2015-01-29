@@ -27,6 +27,7 @@ namespace my {
         I& ima = ima_.exact();
         typename I::p_iterator_type p(ima.domain());
         unsigned v = 0;
+
         for_all(p){
             ima(p) = v++;
         }

@@ -50,6 +50,14 @@ namespace my {
             return (*ima_)(p);
         }
 
+        value_type& operator()(const point_type& p) {
+            if (!domain().has(p)) {
+                std::abort();
+            }
+
+            return (*ima_)(p);
+        }
+
         const domain_type& domain() const {
             return domain_;
         }

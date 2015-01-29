@@ -83,7 +83,7 @@ namespace my {
         }
 
         bool is_valid() const {
-            return p_ <= domain_.pmax();
+            return p_.row <= domain_.pmax().row;
         }
 
         void next() {
