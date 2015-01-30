@@ -21,7 +21,7 @@ namespace my {
         typedef typename domain_type::n_iterator_type n_iterator_type;
 
         /**
-         * TODO do it the C++ way :
+         * C++ 11 way :
          *   template <typename U>
          *   using with_value_type = Image2D<U>;
          *

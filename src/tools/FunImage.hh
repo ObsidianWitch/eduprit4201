@@ -26,7 +26,6 @@ namespace my {
         typedef typename I::p_iterator_type p_iterator_type;
         typedef typename I::n_iterator_type n_iterator_type;
 
-        // TODO do it the C++ 11 way
         template <typename U>
         struct with_value_type {
             typedef typename I::template with_value_type<U>::ret ret;
