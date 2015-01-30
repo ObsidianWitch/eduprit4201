@@ -56,12 +56,12 @@ add_executable(test_compute_dmap__v2.out
     src/tools/compute_dmap__v2.hh
 )
 
-# add_executable(music_score_analysis.out
-#     src/music_score_analysis.cc
-#     src/tools/analyze.hh
-#     src/tools/Box2D.hh
-#     src/tools/Image2D.hh
-#     src/tools/ImageIf.hh
-#     src/tools/Helper.hh
-#     src/tools/compute_dmap__v2.hh
-# )
+add_executable(music_score_analysis.out
+    src/music_score_analysis.cc
+    src/tools/analyze.hh
+    src/tools/Box2D.hh
+    src/tools/Image2D.hh
+    src/tools/ImageIf.hh
+    src/tools/Helper.hh
+    src/tools/compute_dmap__v2.hh
+)
