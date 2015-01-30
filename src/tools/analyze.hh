@@ -36,6 +36,35 @@ namespace my {
         return m;
     }
 
+    template<typename I>
+    void computeShortestPath(Image2D<unsigned>& path, const Image2D<unsigned>& iz,
+        const I& dmap_, Point2D endPoint, unsigned label)
+    {
+        const I& dmap = dmap_.exact();
+        auto D = dmap.domain();
+
+        Point2D p = endPoint;
+        unsigned currentDistance = dmap(endPoint);
+        path(p) = label;
+
+        while(currentDistance > 0) {
+            auto n = dmap.nIterator();
+            n.center_at(p);
+
+            for_all (n) {
+                if (D.has(n) &&
+                    iz(n) == label &&
+                    dmap(n) == currentDistance - 1)
+                {
+                    path(n) = label;
+                    p = n;
+                    currentDistance--;
+                    break;
+                }
+            }
+        }
+    }
+
     Image2D<unsigned> analyze(Image2D<unsigned>& lab,
         const Image2D<bool_t>& msk)
     {
@@ -56,11 +85,10 @@ namespace my {
                 << ":  max distance = " << dmap(it->second)
                 << ",  max point = " << it->second << std::endl;
 
-            // TODO PCC
+            computeShortestPath(path, f.iz, dmap, it->second, it->first);
         }
 
         std::cout << std::endl;
-
 
         return path;
     }
