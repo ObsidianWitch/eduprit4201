@@ -12,7 +12,6 @@ namespace my {
         typedef IteratorIf p_iterator_type;
         typedef Neighb2DIterator n_iterator_type;
 
-        // FIXME generic image
         DomainIf(const Image2D<bool_t>& msk) :
             msk_(msk)
         {
@@ -38,12 +37,10 @@ namespace my {
             return msk_.domain().index_of(p);
         }
 
-        // TODO generic return type
         Box2D parentDomain() const {
             return msk_.domain();
         }
 
-        // TODO generic return type
         Box2DIterator parentIterator() const {
             return msk_.pIterator();
         }
