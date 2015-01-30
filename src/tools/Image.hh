@@ -25,7 +25,7 @@ namespace my {
 
     template <typename I> void debug_iota(Image<I>& ima_) {
         I& ima = ima_.exact();
-        typename I::p_iterator_type p(ima.domain());
+        auto p = ima.pIterator();
         unsigned v = 0;
 
         for_all(p){
@@ -36,7 +36,7 @@ namespace my {
     template <typename I>
     void data_fill(Image<I>& ima_, typename I::value_type v) {
         I& ima = ima_.exact();
-        typename I::p_iterator_type p(ima.domain());
+        auto p = ima.pIterator();
         for_all(p){
             ima(p) = v;
         }
@@ -46,7 +46,7 @@ namespace my {
     template <typename I>
     std::ostream& operator<<(std::ostream& ostr, const Image<I>& ima_) {
         const I& ima = ima_.exact();
-        typename I::p_iterator_type p(ima.domain());
+        auto p = ima.pIterator();
         for_all(p) {
             ostr << p << ':' << ima(p) << ' ';
         }
