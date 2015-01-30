@@ -46,10 +46,10 @@ int main() {
     fancy_print(make_ImageIf(lab, msk), b);
     // gives:
     //
-    //         0
-    // 1 0 0 0
-    //       0 0
-    // 2 0 0   0
+    // X X X X 0
+    // 1 0 0 0 X
+    // X X X 0 0
+    // 2 0 0 X 0
 
 
     {
@@ -67,10 +67,10 @@ int main() {
         fancy_print( make_ImageIf(dmap, msk), b );
         // gives:
         //
-        //         5
-        // 0 1 2 3
-        //       4 5
-        // 0 1 2   4
+        // X X X X 5
+        // 0 1 2 3 X
+        // X X X 4 5
+        // 0 1 2 X 4
 
         // WE WANT TO COMPUTE THE DISTANCE MAP *WITHIN* THE MASK:
 
@@ -78,10 +78,10 @@ int main() {
 
         // gives:
         //
-        //         4294967295 <- this value is MAX, i.e., unsigned(-1)
-        // 0 1 2 3
-        //       4 5
-        // 0 1 2   6
+        // X X X X 4294967295 <- this value is MAX, i.e., unsigned(-1)
+        // 0 1 2 3 X
+        // X X X 4 5
+        // 0 1 2 X 6
 
         // THAT IS THE *EXPECTED* RESULT  :-)
     }
