@@ -11,9 +11,12 @@
 
 namespace my {
 
+    template<typename I>
     std::map<unsigned, Point2D> computeMaxPoints(const Image2D<unsigned>& iz,
-        const Image2D<unsigned>& dmap)
+        const Image<I>& dmap_)
     {
+        const I& dmap = dmap_.exact();
+
         std::map<unsigned, Point2D> m;
 
         auto p = iz.pIterator();
@@ -41,7 +44,7 @@ namespace my {
         Helper f(lab);
         auto dmap = compute_dmap__v2(
             make_ImageIf(lab, msk), f
-        ).removeIf();
+        );
 
         std::map<unsigned, Point2D> maxPoints = computeMaxPoints(f.iz, dmap);
 
@@ -51,10 +54,12 @@ namespace my {
         for (auto it = maxPoints.begin() ; it != maxPoints.end() ; it++) {
             std::cout << "label " << it->first
                 << ":  max distance = " << dmap(it->second)
-                << ",  max point = " << it->second << std::endl << std::endl;
+                << ",  max point = " << it->second << std::endl;
 
             // TODO PCC
         }
+
+        std::cout << std::endl;
 
 
         return path;
